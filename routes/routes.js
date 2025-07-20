@@ -384,7 +384,7 @@ try{
     // Step 3: Send email with Excel attachment
     const mailOptions = {
         from: 'shashankphogat26@gmail.com',
-        to: 'shank26101996@gmail.com',
+        to: 'nisar@nsidentics.com',
         subject: 'Incoming Inspection Report',
         text: 'Please find the attached inspection report.',
         attachments: [
@@ -541,7 +541,7 @@ router.get('/api/generate-pareto-report', async (req, res) => {
 
     await transporter.sendMail({
       from:    'shashankphogat26@gmail.com',
-      to:       'shank26101996@gmail.com',
+      to:       'nisar@nsidentics.com',
       subject:  'Daily Pareto Defect Reports',
       text:     'Attached are today’s Pareto defect reports for casting and machining.',
       attachments: [
@@ -681,7 +681,7 @@ router.get('/api/send-model-trend', async (req, res) => {
 
     await transporter.sendMail({
       from:    'shashankphogat26@gmail.com',
-      to:       'shank26101996@gmail.com',
+      to:       'nisar@nsidentics.com',
       subject:    'Daily Model Trend Report',
       text:       'Attached is today’s model trend report.',
       attachments: [{
@@ -802,7 +802,7 @@ router.post('/api/hourly-report', async (req, res) => {
 
     await transporter.sendMail({
       from:    '"Hourly Bot" <shashankphogat26@gmail.com>',
-      to:       'shank26101996@gmail.com',
+      to:       'nisar@nsidentics.com',
       subject:  `Hourly Inspection Report for ${model} (${start.toLocaleDateString()})`,
       text:     `Please find attached the hourly inspection report for ${model} on ${start.toLocaleDateString()}.`,
       attachments: [{
