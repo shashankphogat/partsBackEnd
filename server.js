@@ -11,13 +11,24 @@ const nodemailer = require('nodemailer');
 let allData;
 const cors = require('cors');
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+const allowedOrigins = [
+  'http://localhost:5173', // your Vite dev server
+  'http://localhost:3000', // optional if you used CRA before
+  'https://playful-scone-82dae7.netlify.app' // replace with actual Netlify domain
+];
+
 app.use(cors({
-  origin: FRONTEND_URL,
-  methods: ['GET','POST','PUT','DELETE'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 //routes
